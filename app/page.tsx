@@ -32,7 +32,7 @@ export default function Home() {
 </a>
 
 {/* CAKES */}
-<a href="/breakfast" className="relative group">
+<a href="/cakes" className="relative group">
   <img 
     className="w-60 rounded-[300px] transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-large group-hover:scale-105
     border-small" 
@@ -49,7 +49,7 @@ export default function Home() {
 </a>
 
 {/* DRINKS */}
-<a href="/breakfast" className="relative group">
+<a href="/drinks" className="relative group">
   <img 
     className="w-60 rounded-[300px] transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-large group-hover:scale-105
     border-small" 

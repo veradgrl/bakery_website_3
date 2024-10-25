@@ -4,7 +4,7 @@ import React from "react";
 import { Input } from "@nextui-org/input";
 import { Button, ButtonGroup } from "@nextui-org/button";
 
-export default function App() {
+export default function LoginPage() {
   const [firstName, setFirstName] = React.useState<string>("");
   const [lastName, setLastName] = React.useState<string>("");
   const [phone, setPhone] = React.useState<string>("");
@@ -34,13 +34,13 @@ export default function App() {
     <div>
 
       <div className='flex items-center justify-center mb-10'>
-        <div className="flex flex-col justify-center items-center shadow-lg rounded-full bg-stone-100 w-48 h-48">
+        <div className="flex flex-col justify-center items-center shadow-lg rounded-full bg-stone-100 w-48 h-48 sm:w-38 sm:h-38 ">
           <img className="justify-center items-center w-20 mb-3 " src="/images/cake.png" alt="cake" />
           <h1 className="font-hand-write text-5xl font-bold ">CAKES</h1>
           <h1 className="font-hand-write text-3xl font-bold ">login</h1>
         </div></div>
 
-      <div className="flex flex-col gap-4 mb-3 ">
+      <div className="flex flex-col justify-center gap-4 mb-3 ">
         <Input
           type="text"
           label="Name"

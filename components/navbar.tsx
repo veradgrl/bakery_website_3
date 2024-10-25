@@ -10,12 +10,16 @@ import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
+import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
+
+
 
 export const Navbar = () => {
   return (
-    <NextUINavbar className='bg-stone-300 bg-opacity-20' maxWidth="xl" position="sticky">
+    <NextUINavbar className='bg-stone-300 bg-opacity-20 ' maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full " justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">   
+
+        <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <img className="w-6 " src="/images/cake.png" alt="cake" />
             <p className="font-hand-write font-bold text-inherit text-3xl">CAKES</p>
@@ -37,7 +41,14 @@ export const Navbar = () => {
             </NavbarItem>
           ))}
         </ul>
+
+
+
+        <div className="flex gap-4 items-center ml-auto ">
+          <Avatar showFallback src=' ' alt='de' />
+        </div>
+
       </NavbarContent>
     </NextUINavbar>
   );
-};
+}; 
