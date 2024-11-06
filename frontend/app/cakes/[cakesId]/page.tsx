@@ -17,7 +17,7 @@ export default function Id ({
     <h1 className="font-bold text-5xl">{cakeItem.title}</h1>
     <hr className="my-5" />
     <div className="row-span-2">
-    <h1>{cakeItem.intro2}</h1>
+    <h1>{cakeItem.intro}</h1>
     
     </div>
     <hr className="my-5" />

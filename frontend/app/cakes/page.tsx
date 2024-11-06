@@ -7,14 +7,12 @@ import list from "@/components/cakesItem";
 import { CakesItem } from "@/components/cakesItem";
 
 
-
 export default function CakesPage() {
 
   const [search, setSearch] = useState<string>("");
   const [filtered, setFiltered] = useState<CakesItem[]>([]);
 
 
-  
 const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
   const value = e.target.value.toLowerCase(); 
   setSearch(value);
@@ -30,6 +28,7 @@ const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
 
 return (
   <div>
+
 
     <div className='flex items-center justify-center mb-5'>
       <div className="flex flex-col justify-center items-center shadow-lg rounded-full bg-stone-100 w-48 h-48">
@@ -75,7 +74,7 @@ return (
               </Card>
               <span className="absolute inset-0 flex items-center justify-center text-stone-700 font-hand-write text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex-col">
                 <h1 className="text-2xl underline decoration-wavy mb-2">INGREDIENTS</h1>
-                <h1>{item.intro}</h1>
+                <h1>{item.ingredients}</h1>
               </span></a>
             </div>
           ))}

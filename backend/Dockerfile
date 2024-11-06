@@ -1,0 +1,18 @@
+FROM node:16
+
+# create app directory
+WORKDIR /usr/src/app
+
+#install app dependecies
+COPY package*.json ./
+
+RUN npm install
+
+# bundle app source
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD [ "npm", "run", "start:prod" ]
