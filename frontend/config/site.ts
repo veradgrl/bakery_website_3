@@ -21,6 +21,10 @@ export const siteConfig = {
       href: "/drinks",
     },
     {
+      label: "Sign up",
+      href: "/signup",
+    },
+    {
       label: "Login",
       href: "/login",
     },

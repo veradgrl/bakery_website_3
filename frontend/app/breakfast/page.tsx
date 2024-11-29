@@ -3,13 +3,9 @@
 import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
 import React, { useState } from "react";
+import list from "@/components/breakfastItem";
+import { BreakfastItem } from "@/components/breakfastItem";
 
-interface BreakfastItem {
-  title: string;
-  img: string;
-  price: string;
-  intro: string
-}
 interface CreateItem {
   title: string;
   img: string;
@@ -23,32 +19,7 @@ export default function BreakfastPage() {
   const [search, setSearch] = useState("");
   const [filtered, setFiltered] = useState<BreakfastItem[]>([]);
 
-  const list: BreakfastItem[] = [
-    {
-      title: "all in plate",
-      img: "/images/breakfastImages/breakfast-plate.jpg",
-      price: "$5.50",
-      intro: "a plate with: two toasts with your choice of ingredients, served with seasonal fruits",
-    },
-    {
-      title: "avacatoast",
-      img: "/images/breakfastImages/avacadoBread.jpg",
-      price: "$3.40",
-      intro: "two toasts with avacado, boiled and fried eggs and shrimp",
-    },
-    {
-      title: "full toast",
-      img: "/images/breakfastImages/toast.jpg",
-      price: "$3.00",
-      intro: "two toasts with fried egg, cheddar cheese, mashed avacado, bacon and smoked turkey",
-    },
-    {
-      title: "all on bread",
-      img: "/images/breakfastImages/onBread.jpg",
-      price: "$3.30",
-      intro: "a slice of bread with cheddar cheese, seasonal greens, bacon and sliced boiled egg",
-    },
-  ];
+  
 
   const list2: CreateItem[] = [
     {
@@ -98,6 +69,7 @@ export default function BreakfastPage() {
           <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
             {filtered.map((item, index) => (
               <div className="relative group">
+                <a href={`breakfast/${item.id}`}>
                 <Card
                   className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                   shadow="sm"
@@ -122,8 +94,8 @@ export default function BreakfastPage() {
                 </Card>
                 <span className="absolute inset-0 flex items-center justify-center text-stone-700 font-hand-write text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex-col">
                   <h1 className="text-2xl underline decoration-wavy mb-2">INGREDIENTS</h1>
-                  <h1>{item.intro}</h1>
-                </span>
+                  <h1>{item.ingredients}</h1>
+                </span></a>
               </div>
             ))}
           </div>
@@ -131,6 +103,7 @@ export default function BreakfastPage() {
           <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
             {list.map((item, index) => (
               <div className="relative group">
+                <a href={`breakfast/${item.id}`}>
                 <Card
                   className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                   shadow="sm"
@@ -155,8 +128,8 @@ export default function BreakfastPage() {
                 </Card>
                 <span className="absolute inset-0 flex items-center justify-center text-stone-700 font-hand-write text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex-col">
                   <h1 className="text-2xl underline decoration-wavy mb-2">INGREDIENTS</h1>
-                  <h1>{item.intro}</h1>
-                </span>
+                  <h1>{item.ingredients}</h1>
+                </span></a>
               </div>
             ))}
           </div>

@@ -7,6 +7,19 @@ export interface CakesItem {
     id: number;
   }
   
+  export interface Cake {
+    id: number;
+    category: string;
+    title: string;
+    price: number;
+    intro: string;
+    ingredients: string;
+
+  }
+
+  
+
+
   const list: CakesItem[] = [
     {
       title: "hazelnut cookie cupcake",

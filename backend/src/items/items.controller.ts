@@ -6,13 +6,13 @@ import { Items } from './items.entity';
 export class ItemsController {
     constructor(private readonly itemsService: ItemsService ){}
 
-    // get all users
+    // get all items
     @Get()
     async findAll(): Promise<Items[]> {
         return await this.itemsService.findall();
     }
 
-    //get one user
+    //get one item
     @Get(':id')
     async findOne(@Param('id') id: number):  Promise<Items> {
         const item = await  this.itemsService.findOne(id);

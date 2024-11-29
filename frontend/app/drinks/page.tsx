@@ -105,8 +105,8 @@ export default function DrinksPage() {
                 className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                 shadow="sm"
                 key={index}
-                isPressable
-                onPress={() => console.log(`${item.title} pressed`)}
+                // isPressable
+                // onPress={() => console.log(`${item.title} pressed`)}
               >
                 <CardBody className="overflow-visible p-0">
                   <Image
@@ -134,8 +134,8 @@ export default function DrinksPage() {
                 className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                 shadow="sm"
                 key={index}
-                isPressable
-                onPress={() => console.log(`${item.title} pressed`)}
+                // isPressable
+                // onPress={() => console.log(`${item.title} pressed`)}
               >
                 <CardBody className="overflow-visible p-0">
                   <Image

@@ -4,9 +4,11 @@ import { AppService } from './app.service';
 import { ItemsModule } from './items/items.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {ConfigModule} from '@nestjs/config';
+import { CakesModule } from './cakes/cakes.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
-  imports: [ItemsModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
+  imports: [ItemsModule, UsersModule, CakesModule, ConfigModule.forRoot(), TypeOrmModule.forRoot({
     type: process.env.DB_TYPE as 'postgres',
     host: process.env.PG_HOST,
     port: parseInt(process.env.PG_PORT),
