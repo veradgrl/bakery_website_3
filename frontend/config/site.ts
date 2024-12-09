@@ -20,14 +20,7 @@ export const siteConfig = {
       label: "Drinks",
       href: "/drinks",
     },
-    {
-      label: "Sign up",
-      href: "/signup",
-    },
-    {
-      label: "Login",
-      href: "/login",
-    },
+
   ],
   navMenuItems: [
     {

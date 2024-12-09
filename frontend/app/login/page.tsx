@@ -4,12 +4,15 @@ import React from "react";
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 export default function LoginPage() {
   const [firstName, setFirstName] = React.useState<string>("");
   const [password, setPassword] = React.useState<string>("");
   const [email, setEmail] = React.useState<string>("");
   const [error, setError] = React.useState<string>("");
+
 
   // E-posta doğrulama fonksiyonu
   const validateEmail = (value: string): RegExpMatchArray | null =>
@@ -31,20 +34,28 @@ export default function LoginPage() {
     return true;
   };
 
+
+
   const handleSubmit = () => {
     // Tüm alanlar dolu mu kontrol et
     const allValid = handleAll();
     // E-posta geçerli mi diye bak
-    if (allValid) {  
+    if (allValid) {
       // Axios POST isteği
-      axios
-        .post("/api/users", { name, email, password })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+
+      // axios
+      //   .post("/api/users", { name, email, password })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((err) => {
+      //     console.error(err);
+      //   });
+
+      const user = { name: "John", age: 30 };
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = "/";
+
     } else if (isInvalid) {
       setError("Please enter a valid email address.");
     }
@@ -107,4 +118,3 @@ export default function LoginPage() {
     </div>
   );
 }
-

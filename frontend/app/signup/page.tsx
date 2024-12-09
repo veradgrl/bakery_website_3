@@ -41,14 +41,19 @@ export default function SignUpPage() {
     // E-posta geçerli mi diye bak
     if (allValid && !isInvalid) {  
       // Axios POST isteği
-      axios
-        .post("/api/users", { name, email, password })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
+      // axios
+      //   .post("/api/users", { name, email, password })
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((err) => {
+      //     console.error(err);
+      //   });
+
+      const user = { name: "John", age: 30 };
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = "/";
+
     } else if (isInvalid) {
       setError("Please enter a valid email address.");
     }

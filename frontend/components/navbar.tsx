@@ -1,5 +1,6 @@
-import '../styles/globals.css'
+"use client"
 
+import '../styles/globals.css'
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -11,10 +12,32 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { siteConfig } from "@/config/site";
 import { Avatar, AvatarGroup, AvatarIcon } from "@nextui-org/avatar";
-
-
+import { useEffect, useState } from 'react';
+import { Button } from '@nextui-org/button';
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, User,} from "@nextui-org/react";
 
 export const Navbar = () => {
+  const [storedUser, setStoredUser] = useState<any>(null);
+
+  useEffect(() => {
+    // Tarayıcı tarafında çalıştığından emin ol
+    const user = localStorage.getItem("user");
+    if (user) {
+      setStoredUser(user); // Sadece string olan değer atanır.
+      console.log("userr", user);
+    }
+
+  }, [storedUser]);
+
+  const handleLogout = () => {
+    // localStorage'dan kullanıcıyı silme
+    localStorage.removeItem('user');
+
+    // Kullanıcı çıkış yapınca '/login' sayfasına yönlensin
+    window.location.href = '/login';
+  };
+
+
   return (
     <NextUINavbar className='bg-stone-300 bg-opacity-20 ' maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full " justify="start">
@@ -43,10 +66,45 @@ export const Navbar = () => {
         </ul>
 
 
+        <div className="flex gap-4 items-center ml-auto">
+          {storedUser ? <div className="flex items-center gap-4">
+            <Dropdown placement="bottom-start">
+              <DropdownTrigger>
+                <User
+                  as="button"
+                  avatarProps={{
+                    isBordered: true,
+                    src: "",
 
-        <div className="flex gap-4 items-center ml-auto ">
-          <Avatar showFallback src=' ' alt='de' />
+                  }}
+                  className="transition-transform"
+                  description="@ellewoods"
+                  name="Elle Woods"
+                />
+              </DropdownTrigger>
+              <DropdownMenu aria-label="User Actions" variant="flat">
+                <DropdownItem key="profile" className="h-14 gap-2">
+                  <p className="font-bold">Signed in as</p>
+                  <p className="font-bold">@ellewoods</p>
+                </DropdownItem>
+                <DropdownItem key="logout" color="danger" onClick={handleLogout}>
+                  Log Out
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div> :
+            (<>
+              <a href="/login">
+                <Button>
+                  Login
+                </Button></a>
+              <a href="/signup">
+                <Button>
+                  Sign up
+                </Button></a>
+            </>)}
         </div>
+
 
       </NavbarContent>
     </NextUINavbar>
