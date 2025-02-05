@@ -17,9 +17,6 @@ export interface CakesItem {
 
   }
 
-  
-
-
   const list: CakesItem[] = [
     {
       title: "hazelnut cookie cupcake",

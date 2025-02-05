@@ -8,6 +8,7 @@ interface DrinksItem {
   title: string;
   img: string;
   price: string;
+  id:number;
 }
 
 export default function DrinksPage() {
@@ -21,43 +22,51 @@ export default function DrinksPage() {
       title: "cinnamon latte",
       img: "/images/drinksImage/cinnamonCoffee.jpg",
       price: "$4.20",
+      id:0 , 
     },
 
     {
       title: "latte",
       img: "/images/drinksImage/lattee.jpg",
       price: "$4.20",
+      id:1  
     },
     {
       title: "matcha latte",
       img: "/images/drinksImage/matchaLatte.jpg",
       price: "$4.20",
+      id:2  
     },
     {
       title: "cappucino",
       img: "/images/drinksImage/cappucino.jpg",
       price: "$4.20",
+      id:3  
     },
     {
       title: "fresh lemonade",
       img: "/images/drinksImage/lemonade.jpg",
       price: "$4.20",
+      id:4  
     },
 
     {
       title: "strawberry soda",
       img: "/images/drinksImage/strawberrySoda.jpg",
       price: "$4.20",
+      id:5  
     },
     {
       title: "kiwi soda",
       img: "/images/drinksImage/kiwiSoda.jpg",
       price: "$4.20",
+      id:6  
     },
     {
       title: "herbal tea",
       img: "/images/drinksImage/herbalTea.jpg",
       price: "$4.20",
+      id:7  
     },
 
 
@@ -100,11 +109,11 @@ export default function DrinksPage() {
       {filtered.length > 0 ? (
         <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
           {filtered.map((item, index) => (
-            <div className="relative group">
+            <div className="relative group" key={item.id}>
               <Card
                 className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                 shadow="sm"
-                key={index}
+                
                 // isPressable
                 // onPress={() => console.log(`${item.title} pressed`)}
               >
@@ -129,11 +138,11 @@ export default function DrinksPage() {
       ) : (
         <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
           {list.map((item, index) => (
-            <div className="relative group">
+            <div className="relative group" key={item.id}>
               <Card
                 className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                 shadow="sm"
-                key={index}
+                
                 // isPressable
                 // onPress={() => console.log(`${item.title} pressed`)}
               >

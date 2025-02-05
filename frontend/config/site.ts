@@ -20,6 +20,10 @@ export const siteConfig = {
       label: "Drinks",
       href: "/drinks",
     },
+    {
+      label: "Demo",
+      href: "/demo",
+    },
 
   ],
   navMenuItems: [

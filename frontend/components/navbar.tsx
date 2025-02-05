@@ -24,7 +24,7 @@ export const Navbar = () => {
     const user = localStorage.getItem("user");
     if (user) {
       setStoredUser(user); // Sadece string olan değer atanır.
-      console.log("userr", user);
+      console.log("user", user);
     }
 
   }, [storedUser]);
@@ -74,8 +74,7 @@ export const Navbar = () => {
                   as="button"
                   avatarProps={{
                     isBordered: true,
-                    src: "",
-
+                    src:"/images/elle_woods2.jpg",
                   }}
                   className="transition-transform"
                   description="@ellewoods"
