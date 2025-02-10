@@ -4,15 +4,15 @@ const nextConfig = {
       return [
         {
           source: '/items',
-          destination: 'http://localhost:3000/items', // Backend'in adresi
+          destination: 'http://localhost:3300/items', // Backend'in adresi
         },
         {
           source: '/api/cakes',
-      destination: 'http://localhost:3000/cakes',
+      destination: 'http://localhost:3300/cakes',
         },
         {
           source: '/api/users',
-      destination: 'http://localhost:3000/users',
+      destination: 'http://localhost:3300/users',
         },
       ];
     },

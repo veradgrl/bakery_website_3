@@ -21,15 +21,15 @@ export default function CakesPage() {
   }
 
   const [data, setData] = useState<Cake[]>([]);
-  const BASE_URL = '/api/cakes';
+  const BASE_URL = 'http://localhost:3300/cakes';
 
    // apiden cakes verilerini çekme
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response: AxiosResponse<Cake[]> = await axios.get(BASE_URL); // API çağrısı -> response artık BASE_URL'den geln verileri tutuyor
+        console.log("Fetched data:", response.data);
         setData(response.data); // en yukarıda tanımlanan data artık response içinden gelen datayı tutuyor 
-        //// setFiltered(response.data); // İlk durumda filtrelenmiş veri tüm listeyi içersin
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -51,7 +51,6 @@ export default function CakesPage() {
       setFiltered(searchFilter);
     }
   };
-
 
   return (
     <div>
@@ -76,34 +75,34 @@ export default function CakesPage() {
 
         {filtered.length > 0 ? (
           <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
-            {filtered.map((item, index) => (
+            {filtered.map((cake) => (
               <div className="relative group">
-                <a href={`cakes/${item.id}`}>
+                <a href={`cakes/${cake.id}`}>
                   <Card
                     className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                     shadow="sm"
-                    key={index}
+                    key={cake.id}
                     isPressable
-                    onPress={() => console.log(`${item.title} pressed`)}
+                    onPress={() => console.log(`${cake.title} pressed`)}
                   >
                     <CardBody className="overflow-visible p-0">
                       <Image
                         shadow="sm"
                         radius="lg"
                         width="100%"
-                        alt={item.title}
+                        alt={cake.title}
                         className="w-full object-cover h-[200px]"
                         src={'/images/cakesImages/cookieCake.jpg'}
                       />
                     </CardBody>
                     <CardFooter className="text-medium font-hand-write justify-between">
-                      <b>{item.title}</b>
-                      <p className="text-default-500">{item.price.toFixed(2)} $</p>
+                      <b>{cake.title}</b>
+                      <p className="text-default-500">{cake.price} $</p>
                     </CardFooter>
                   </Card>
                   <span className="absolute inset-0 flex items-center justify-center text-stone-700 font-hand-write text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex-col">
                     <h1 className="text-2xl underline decoration-wavy mb-2">INGREDIENTS</h1>
-                    <h1>{item.ingredients}</h1>
+                    <h1>{cake.ingredients}</h1>
                   </span></a>
               </div>
             ))}
@@ -111,34 +110,33 @@ export default function CakesPage() {
         ) : (
           <div className="gap-5 grid md:grid-cols-4 grid-cols-1 mt-5">
             {/* ******************************************* */}
-            {data.map((item, index) => (
-              <div className="relative group">
-                <a href={`cakes/${item.id}`}>
+            {data.map((cake) => (
+              <div key={cake.id} className="relative group">
+                <a href={`cakes/${cake.id}`}>
                   <Card
                     className="w-60 transition-opacity duration-700 group-hover:opacity-50 group-hover:shadow-2xl group-hover:scale-105"
                     shadow="sm"
-                    key={index}
                     isPressable
-                    onPress={() => console.log(`${item.title} pressed`)}
+                    onPress={() => console.log(`${cake.title} pressed`)}
                   >
                     <CardBody className="overflow-visible p-0">
                       <Image
                         shadow="sm"
                         radius="lg"
                         width="100%"
-                        alt={item.title}
+                        alt={cake.title}
                         className="w-full object-cover h-[200px]"
                         src={'/images/cakesImages/cookieCake.jpg'}
                       />
                     </CardBody>
                     <CardFooter className="text-medium font-hand-write justify-between">
-                      <b>{item.title}</b>
-                      <p className="text-default-500">{item.price.toFixed(2)} $</p>
+                      <b>{cake.title}</b>
+                      <p className="text-default-500">{cake.price} $</p>
                     </CardFooter>
                   </Card>
                   <span className="absolute inset-0 flex items-center justify-center text-stone-700 font-hand-write text-xl font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-700 flex-col">
                     <h1 className="text-2xl underline decoration-wavy mb-2">INGREDIENTS</h1>
-                    <h1>{item.ingredients}</h1>
+                    <h1>{cake.ingredients}</h1>
                   </span></a>
               </div>
             ))}
